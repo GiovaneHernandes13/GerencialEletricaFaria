@@ -3,22 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Produto;
 
-class ProdutosController extends Controller
+class ClientesController extends Controller
 {
-    public readonly Produto $produto;
-
-    public function __construct()
-    {
-        $this->produto = new Produto();
-    }
-    
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $produtos = $this->produto->all();
-        return view('layout.produtos', ['produtos' => $produtos]);
-            
+        //
     }
 
     /**
@@ -48,9 +41,9 @@ class ProdutosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(string $id)
     {
-        var_dump($id);
+        //
     }
 
     /**
