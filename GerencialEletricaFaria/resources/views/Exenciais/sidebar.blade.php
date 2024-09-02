@@ -15,72 +15,69 @@
           </button>
       </div>
       <div class="sidebar-body">
-          <ul class="sidebar-body-menu">
-              <li>
-                  <a class="active" href="/">
-                      <span class="icon home" aria-hidden="true"></span>Dashboard
-                  </a>
-              </li>
-              <li>
-                  <a class="show-cat-btn" href=''>
-                      <span class="icon document" aria-hidden="true"></span>Ordem de Serviço
-                  </a>
-              </li>
-              <li>
-                <a class="show-cat-btn" href="##">
-                    <span class="icon user-3" aria-hidden="true"></span>Clientes
-                </a>
+            <ul class="sidebar-body-menu">
+                <li>
+                    <a class="active" href="/">
+                        <span class="icon home" aria-hidden="true"></span>Dashboard
+                    </a>
                 </li>
-              <li>
-                  <a class="show-cat-btn" href="##">
-                      <span class="icon folder" aria-hidden="true"></span>Produtos
-                  </a>
-              </li>
-              <li>
-                  <a class="show-cat-btn" href="##">
-                      <span class="icon image" aria-hidden="true"></span>Orçamentos
-                  </a>
-              </li>
-              <li>
-                  <a class="show-cat-btn" href="##">
-                      <span class="icon paper" aria-hidden="true"></span>Pages
-                  </a>
-              </li>
-              <li>
-                  <a href="comments.html">
-                      <span class="icon message" aria-hidden="true"></span>
-                      Comments
-                  </a>
-                  <span class="msg-counter">7</span>
-              </li>
+                <li>
+                    <a class="show-cat-btn" href=''>
+                        <span class="icon document" aria-hidden="true"></span>Ordem de Serviço
+                    </a>
+                </li>
+                <li>
+                    <a class="show-cat-btn" href="##">
+                        <span class="icon user-3" aria-hidden="true"></span>Clientes
+                    </a>
+                </li>
+                <li>
+                    <a class="show-cat-btn" href="{{route('ec')}}">
+                        <span class="icon folder" aria-hidden="true"></span>Produtos
+                    </a>
+                </li>
+                <li>
+                    <a class="show-cat-btn" href="##">
+                        <span class="icon image" aria-hidden="true"></span>Orçamentos
+                    </a>
+                </li>
+                <li>
+                    <a class="show-cat-btn" href="##">
+                        <span class="icon paper" aria-hidden="true"></span>Pages
+                    </a>
+                </li>
+                <li>
+                    <a href="comments.html">
+                        <span class="icon message" aria-hidden="true"></span>Comments
+                    </a>
+                    <span class="msg-counter">7</span>
+                </li>
                 <li>
                     <a class="show-cat-btn" href="##">
                         <span class="icon category" aria-hidden="true"></span>Extensions
                     </a>
                 </li>
-                
+            </ul>
+            <ul class="sidebar-body-menu">
                 <li>
-                    <a href="##">
-                        <span class="icon setting" aria-hidden="true"></span>Settings
-                    </a>
+                    <ul class="cat-sub-menu">
+                    </ul>
                 </li>
+                
             </ul>
       </div>
   </div>
   <div class="sidebar-footer">
-      <a href="##" class="sidebar-user">
-          <span class="sidebar-user-img">
-              <picture>
-                  <source srcset="./img/avatar/avatar-illustrated-01.webp" type="image/webp">
-                  <img src="./img/avatar/avatar-illustrated-01.png" alt="User name">
-              </picture>
-          </span>
-          <div class="sidebar-user-info">
-              <span class="sidebar-user__title">Nafisa Sh.</span>
-              <span class="sidebar-user__subtitle">Support manager</span>
-          </div>
-      </a>
-  </div>
+    <a href="##" class="sidebar-user">
+        <span class="sidebar-user-img">
+            <picture><source srcset="./img/avatar/avatar-illustrated-01.webp" type="image/webp"><img src="./img/avatar/avatar-illustrated-01.png" alt="User name"></picture>
+        </span>
+        <div class="sidebar-user-info">
+            <span class="sidebar-user__title">Nafisa Sh.</span>
+            <span class="sidebar-user__subtitle">Support manager</span>
+        </div>
+    </a>
+</div>
 </aside>
 <div class="main-wrapper">
   <!-- ! Main nav -->
