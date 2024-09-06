@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="show-cat-btn" href="{{route('ec')}}">
+                    <a class="show-cat-btn" href="">
                         <span class="icon folder" aria-hidden="true"></span>Produtos
                     </a>
                 </li>

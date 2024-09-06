@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,3 +15,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
 
+
+</head>
+<body>
+
+    <div class="layer"></div>
+    <!-- ! Body -->
+    <div class="page-flex">
+        <!-- ! Sidebar -->
+        @include('../Exenciais.sidebar')
+        
+        <form action="">
+            <input type="text" name="nome_produto" value="{{$produto->nome_produto }}">
+        </form>
+    </div>
+    </div>
+
+    <!-- Chart library -->
+    <script src="./plugins/chart.min.js"></script>
+    <!-- Icons library -->
+    <script src="plugins/feather.min.js"></script>
+    <!-- Custom scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>
