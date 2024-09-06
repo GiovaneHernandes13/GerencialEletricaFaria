@@ -3,23 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Produto;
-use App\Models\User;
+use App\Models\ClientesPF;
 
-class ProdutosController extends Controller
+class ClientesPFController extends Controller
 {
-    public readonly Produto $produto;
+    public readonly ClientesPF $cliente;
 
     public function __construct()
     {
-        $this->produto = new Produto();
+        $this->cliente = new ClientesPF();
     }
-    
+
     public function index()
     {
-        $produtos = $this->produto->all();
-        return view('layout.produtos', ['produtos' => $produtos]);
-            
+        $clientes = $this->cliente->all();
+        return view('layout.clientes', ['clientes' => $this->cliente]);
     }
 
     /**
@@ -49,9 +47,9 @@ class ProdutosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Produto $produto)
+    public function edit(string $id)
     {
-        return view('layout.produto_edit', ['produto' => $produto]);
+        //
     }
 
     /**

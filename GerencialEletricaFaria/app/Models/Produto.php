@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Produto extends Model
 {
     use HasFactory;
+    protected $table = 'produtos';
 
+    protected $primaryKey = 'id_produto'; // Especifica a chave primária
+
+    public $incrementing = true; // Se for auto-incrementável
+    protected $keyType = 'int';
     /**
      * The attributes that are mass assignable.
      *
