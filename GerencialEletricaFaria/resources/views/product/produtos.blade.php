@@ -1,27 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    @include('../Exenciais.css')
-    <link rel="stylesheet" href="./css/produto.css">
-</head>
-<body>
 
-    <div class="layer"></div>
-    <!-- ! Body -->
-    <div class="page-flex">
-        <!-- ! Sidebar -->
-        @include('../Exenciais.sidebar')
-        
-        <div class="container_produtos">
-            <h1>Produtos</h1>
-            
-            <!-- Caixa de texto para pesquisar produtos -->
-            <div class="search-container">
-                <input type="text" id="searchProduct" placeholder="Pesquisar produtos...">
+@extends('layout.index')
+@section('conteudo')
+            <div class="container">
+                <!-- Caixa de texto para pesquisar produtos -->
+                <div class="search-container">
+                    <input type="text" id="searchProduct" placeholder="Pesquisar produtos...">
+                
+                </div>
+                    <button class="botao_add">ADD Produto</button>
+                </div>
             </div>
-        
             <!-- Títulos das colunas -->
-        
             <ul id="productList">
                 <div class="titulos">
                     <div class="id_produto">Code</div>
@@ -47,14 +36,4 @@
                     </li>
                 @endforeach
             </ul>
-        </div>        
-    </div>
-
-    <!-- Chart library -->
-    <script src="./plugins/chart.min.js"></script>
-    <!-- Icons library -->
-    <script src="plugins/feather.min.js"></script>
-    <!-- Custom scripts -->
-    <script src="js/script.js"></script>
-</body>
-</html>
+@endsection
