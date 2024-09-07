@@ -96,3 +96,8 @@ a:hover .icons {
     align-items: center;
     gap: 15px;
 }
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
