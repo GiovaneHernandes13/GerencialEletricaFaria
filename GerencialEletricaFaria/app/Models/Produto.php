@@ -25,6 +25,8 @@ class Produto extends Model
         'descricao',
         'preco',
         'estoque',
+        'preco_custo'
+        
     ];
 
     /**

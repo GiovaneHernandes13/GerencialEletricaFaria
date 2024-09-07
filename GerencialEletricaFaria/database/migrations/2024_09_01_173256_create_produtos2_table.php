@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('produtos', function (Blueprint $table) {
+        Schema::create('produtos2', function (Blueprint $table) {
             $table->increments('id_produto'); // Define a coluna `id_produto` como chave primária e auto-incremento
             $table->string('nome_produto', 100)->nullable(); // Coluna `nome_produto` do tipo varchar(100)
             $table->text('descricao')->nullable(); // Coluna `descricao` do tipo text

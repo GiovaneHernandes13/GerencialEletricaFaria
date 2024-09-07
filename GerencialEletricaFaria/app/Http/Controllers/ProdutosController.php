@@ -18,18 +18,14 @@ class ProdutosController extends Controller
     public function index()
     {
         $produtos = $this->produto->all();
-        return view('layout.produtos', ['produtos' => $produtos]);
+        return view('product.produtos', ['produtos' => $produtos]);
             
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        
     }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -51,7 +47,7 @@ class ProdutosController extends Controller
      */
     public function edit(Produto $produto)
     {
-        return view('layout.produto_edit', ['produto' => $produto]);
+        return view('product.produto_edit', ['produto' => $produto]);
     }
 
     /**
