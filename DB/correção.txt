@@ -1,0 +1,10 @@
+- [x] Tabela cliente PF retirar o campo endereço VARCHAR 
+
+- [x] Criar tabela pessoa, com um campo tipo 1 = PF, 2 = PJ
+- [x] 	Tipo = 2 CPF = CNPJ
+- [x] 	Tipo = 1 CPF = CPF
+
+
+- [x] Em ordem de serviço -> Criar tabela status
+
+- [x] Remover da tabela ordem o cod do produto e criar uma tabela Itens_ordem para relacionar
