@@ -1,14 +1,15 @@
 
 @extends('layout.index')
 @section('conteudo')
-            <div class="container">
-                <!-- Caixa de texto para pesquisar produtos -->
-                <div class="search-container">
-                    <input type="text" id="searchProduct" placeholder="Pesquisar produtos...">
-                
-                </div>
-                    <button class="botao_add">ADD Produto</button>
-                </div>
+  
+            <!-- Caixa de texto para pesquisar produtos -->
+            <div class="search-container">
+                <input class="pesquisa" type="text" id="searchProduct" placeholder="Pesquisar produtos...">
+                <button class="btn_add">ADD Produto
+                <a href="">
+                    
+                </a>
+                </button>
             </div>
             <!-- Títulos das colunas -->
             <ul id="productList">

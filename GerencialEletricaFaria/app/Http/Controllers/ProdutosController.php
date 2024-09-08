@@ -55,7 +55,13 @@ class ProdutosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $updated = $this->produto->where('id_produto', $id)->update($request->except(['_token','_method']));
+        if($updated){
+            return redirect()->back()->with('message', 'Atualização feita com Sucesso');
+        }
+     
+        return redirect()->back()->with('message', 'Error updated');
+
     }
 
     /**

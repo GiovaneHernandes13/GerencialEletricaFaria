@@ -97,7 +97,24 @@ a:hover .icons {
     gap: 15px;
 }
 
-.container {
+.search-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.btn_add {
+    background-color: #8d5aed;
+    width: 120px;
+    height: 30px;
+    border-radius: 3px;
+    border: solid black 1px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.btn_add:hover {
+    background-color: #bea0f5;
 }

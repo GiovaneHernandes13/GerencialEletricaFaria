@@ -56,9 +56,9 @@
                               </a>
                           </li>
                           <li>
-                              <a class="show-cat-btn" href="">
-                                  <span class="icon folder" aria-hidden="true"></span>Produtos
-                              </a>
+                            <a class="show-cat-btn" href="{{ route('produto.index') }}">
+                                <span class="icon folder" aria-hidden="true"></span>Produtos
+                            </a>
                           </li>
                           <li>
                               <a class="show-cat-btn" href="##">
@@ -215,6 +215,7 @@
                 </div>
             </nav>
           @yield('conteudo')
+          @yield('home')
         </div>        
     </div>
     
