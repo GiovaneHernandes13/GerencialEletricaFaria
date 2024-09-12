@@ -24,22 +24,35 @@ class ProdutosController extends Controller
 
     public function create()
     {
-        
+        return view('product.produto_create');
     }
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $create = Produto::create([
+            'nome_produto' => $request->input('nome_produto'),
+            'descricao' => $request->input('descricao'),
+            'preco_custo' => $request->input('preco_custo'),
+            'preco' => $request->input('preco'),
+            'estoque' => $request->input('estoque')
+        ]);
+    
+        if($create){
+            return redirect()->back()->with('message', 'Produto Cadastrado');
+        }
+    
+        return redirect()->back()->with('message', 'Erro ao cadastrar produto');
     }
+    
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Produto $produto)
     {
-        //
+        return view('product.produto_show', ['produto' => $produto]);
     }
 
     /**
@@ -68,7 +81,9 @@ class ProdutosController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
-    {
-        //
-    }
+{
+    $this->produto->where('id_produto', $id)->delete();
+    return redirect()->route('produto.index');
+}
+
 }
