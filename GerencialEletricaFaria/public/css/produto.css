@@ -60,7 +60,8 @@ ul {
 
 .descricao_produto {
     flex: 3;
-    text-align: center;
+    text-align: left;
+    margin-left: 10px;
 }
 
 .preco_produto {
@@ -106,15 +107,21 @@ a:hover .icons {
 }
 
 .btn_add {
-    background-color: #8d5aed;
+    background-color: #6427d6;
     width: 120px;
-    height: 30px;
+    height: 40px;
     border-radius: 3px;
     border: solid black 1px;
     margin-right: 20px;
     margin-top: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
 }
 
 .btn_add:hover {
     background-color: #bea0f5;
+    color: aliceblue;
 }
