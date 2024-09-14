@@ -3,21 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ClientesPF;
 
-class ClientesPFController extends Controller
+class FuncionarioController extends Controller
 {
-    public readonly ClientesPF $cliente;
-
-    public function __construct()
-    {
-        $this->cliente = new ClientesPF();
-    }
-
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $clientes = $this->cliente->all();
-        return view('layout.clientes', ['clientes' => $this->cliente]);
+        //
     }
 
     /**
