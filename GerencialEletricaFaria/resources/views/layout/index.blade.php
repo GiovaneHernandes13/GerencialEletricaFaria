@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="layer"></div>
@@ -214,11 +214,17 @@
                     </div>
                 </div>
             </nav>
+         
           @yield('conteudo')
-          @yield('home')
+          
         </div>        
     </div>
-    
+    <!-- Adicione no cabeçalho (head) da página ou no seu layout principal -->
+
+
+    <!-- Adicione antes de fechar o body -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <!-- Chart library -->
     <script src="./plugins/chart.min.js"></script>
     <!-- Icons library -->

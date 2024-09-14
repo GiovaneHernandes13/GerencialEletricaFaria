@@ -1,5 +1,5 @@
 @extends('layout.index')
 
-@section('home')
+@section('conteudo')
     <h1>API GOOGLE AGENDAS</h1>
 @endsection
