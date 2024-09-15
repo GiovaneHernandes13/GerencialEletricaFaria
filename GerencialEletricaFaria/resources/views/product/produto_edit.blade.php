@@ -5,28 +5,28 @@
     @if (session()->has('message'))
         {{ session()->get('message')}}
     @endif
-    <form action="{{ route('produtos.update', ['produto' => $produto->id_produto]) }}" method="POST">
-        @csrf 
+    <form action="{{ route('produto.update', ['produto' => $produto->id_produto]) }}" method="POST">
+        @csrf
         @method('PUT')
         <div>
             <label for="">NOME</label>
-            <input type="text" name="nome_produto" value="{{ $produto->nome_produto }}">
+            <input class="inputprod" type="text" name="nome_produto" value="{{ $produto->nome_produto }}">
         </div>
         <div>
             <label for="">DESCRIÇÃO</label>
-            <input type="text" name="descricao" value="{{ $produto->descricao }}">
+            <input class="inputprod2" type="text" name="descricao" value="{{ $produto->descricao }}">
         </div>
         <div>
             <label for="">PREÇO DE CUSTO</label>
-            <input type="text" name="preco_custo" value="{{ $produto->preco_custo }}">
+            <input class="inputprod" type="text" name="preco_custo" value="{{ $produto->preco_custo }}">
         </div>
         <div>
             <label for="">PREÇO DE VENDA</label>
-            <input type="text" name="preco" value="{{ $produto->preco }}">
+            <input class="inputprod" type="text" name="preco" value="{{ $produto->preco }}">
         </div>
         <div>
             <label for="">ESTOQUE</label>
-            <input type="text" name="estoque" value="{{ $produto->estoque }}">
+            <input class="inputprod" type="text" name="estoque" value="{{ $produto->estoque }}">
         </div>
 
         <label for="id_cest">CEST:</label>
@@ -38,8 +38,6 @@
                 </option>
             @endforeach
         </select>
-        
-        <!-- Seleção de NCM com campo de busca -->
         <label for="id_ncm">NCM:</label>
         <select id="id_ncm" name="id_ncm" class="select2">
             <option value="">Selecione o NCM</option>

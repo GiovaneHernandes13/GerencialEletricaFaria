@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gerencial Eletrica Faria</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./img/logoTransformador.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('./img/logoTransformador.png' )}}" type="image/x-icon">
     <!-- Custom styles -->
-    <link rel="stylesheet" href="./css/style.min.css">
-    <link rel="stylesheet" href="./css/test.css">
-    <link rel="stylesheet" href="./css/home.css">
-    <link rel="stylesheet" href="./css/produto.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/test.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/produto.css') }}">
+    <link rel="preconnect" href="{{ asset('https://fonts.googleapis.com')}}">
+    <link rel="preconnect" href="{{ asset('https://fonts.gstatic.com')}}" crossorigin>
+    <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap')}}">
+    <link rel="stylesheet" href="{{ asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css')}}" />
 </head>
 <body>
     <div class="layer"></div>
@@ -224,7 +224,6 @@
 
     <!-- Adicione antes de fechar o body -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
     <!-- Chart library -->
     <script src="./plugins/chart.min.js"></script>
     <!-- Icons library -->
