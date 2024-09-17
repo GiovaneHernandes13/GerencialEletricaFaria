@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CestController extends Controller
+class Itens_da_ordemController extends Controller
 {
     /**
      * Display a listing of the resource.

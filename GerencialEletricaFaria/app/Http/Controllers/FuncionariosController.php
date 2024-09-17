@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Funcionario;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\returnSelf;
+
 class FuncionariosController extends Controller
 {
     public function index()
@@ -12,12 +14,10 @@ class FuncionariosController extends Controller
         $funcionario = Funcionario::all();
         return view('funcionario.funcionario', ['funcionarios' => $funcionario]);
     }
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
-        //
+        return view('funcionario.funcionario_create');
     }
 
     /**§
@@ -25,15 +25,29 @@ class FuncionariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nome' => 'required|string|max:255',
+            'cpf' => 'required|numeric',
+            'rg' => 'required|string',
+            'telefone' => 'required|numeric',
+            'email' => 'required|string',
+            'data_contratacao' => 'required|string', 
+            'cargo' => 'required|string', 
+            'salario' => 'required|required|numeric',
+        ]);
+
+        Funcionario::create($validatedData);
+
+        return redirect()->route('funcionarios.index')->with('message', 'Produto salvo com sucesso!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
-        //
+        $funcionario = Funcionario::findOrFail($id);
+        return view('funcionario.funcionario_show', ['funcionarios' => $funcionario]);
     }
 
     /**
@@ -71,8 +85,9 @@ class FuncionariosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Funcionario $funcionario)
     {
-        //
+        $funcionario->delete();
+        return route('funcionarios.index');
     }
 }

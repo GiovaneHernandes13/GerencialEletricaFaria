@@ -38,8 +38,14 @@ class ProdutosController extends Controller
         Produto::create($validatedData);
     
         return redirect()->route('produto.index')->with('message', 'Produto salvo com sucesso!');
+    
     }
     
+    public function show(int $id)
+    {
+        $produto = Produto::findOrFail($id);
+        return view('product.produto_show', ['produto' => $produto]);
+    }
 
     public function edit(Produto $produto)
     {
@@ -70,6 +76,6 @@ class ProdutosController extends Controller
     public function destroy(Produto $produto)
     {
         $produto->delete();
-        return redirect()->route('produtos.index')->with('message', 'Produto excluído com sucesso!');
+        return route('produtos.index');
     }
 }
