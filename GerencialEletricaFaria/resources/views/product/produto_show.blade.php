@@ -1,6 +1,10 @@
 @extends('layout.index')
 @section('conteudo')
-    
-    <h1>{{$produto->nome_produto}}</h1>
+    <ul>
+        <li>{{ $produto->id_produto }}</li>
+        <li>{{ $produto->nome_produto }}</li>
+        <li>{{ $produto->descricao }}</li>
+        <li>{{ $produto->preco }}</li>
+    </ul>
     
 @endsection

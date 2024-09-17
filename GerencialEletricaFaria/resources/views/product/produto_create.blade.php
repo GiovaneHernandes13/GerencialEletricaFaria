@@ -5,7 +5,7 @@
         {{ session()->get('message') }}
     @endif
 
-    <form action="{{ route('produtos.store') }}" method="POST">
+    <form action="{{ route('produto.store') }}" method="POST">
         @csrf
         <input type="text" name="nome_produto" placeholder="Nome" required>
         <input type="text" name="descricao" placeholder="Descrição" required>

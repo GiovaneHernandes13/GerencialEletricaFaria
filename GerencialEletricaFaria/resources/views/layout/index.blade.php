@@ -51,12 +51,12 @@
                               </a>
                           </li>
                           <li>
-                              <a class="show-cat-btn" href="##">
+                              <a class="show-cat-btn" href="">
                                   <span class="icon user-3" aria-hidden="true"></span>Clientes
                               </a>
                           </li>
                           <li>
-                            <a class="show-cat-btn" href="{{ route('produto.index') }}">
+                            <a class="show-cat-btn" href="">
                                 <span class="icon folder" aria-hidden="true"></span>Produtos
                             </a>
                           </li>
