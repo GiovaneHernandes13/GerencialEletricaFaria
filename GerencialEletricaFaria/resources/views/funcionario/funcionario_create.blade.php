@@ -1,17 +1,18 @@
 @extends('layout.index')
 
 @section('conteudo')
-    <form action="{{ route('funcioanrios.store') }}" method="POST">
+    <form action="{{ route('funcionarios.store') }}" method="POST">
         @csrf
         <input type="text" name="nome" placeholder="Nome" required>
         <input type="number" name="cpf" placeholder="000.000.000-00" required>
-        <input type="text" step="rg" name="rg" placeholder="rg" required>
-        <input type="number" step="telefone" name="telefone" placeholder="telefone" required>
-        <input type="text" name="email" placeholder="email" required>
-        <input type="date" step="data_contratacao" name="data_contratacao" placeholder="data_contratacao" required>
-        <input type="text" step="cargo" name="cargo" placeholder="Cargo" required>
-        <input type="number" name="0.01" placeholder="salario" required>
-        <button type="submite"></button>
+        <input type="text" name="rg" placeholder="RG" required>
+        <input type="number" name="telefone" placeholder="Telefone" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="date" name="data_contratacao" placeholder="Data de Contratação" required>
+        <input type="text" name="cargo" placeholder="Cargo" required>
+        <input type="number" step="0.01" name="salario" placeholder="Salário" required>
+        <button type="submit">Salvar</button>
     </form>
 @endsection
+
 

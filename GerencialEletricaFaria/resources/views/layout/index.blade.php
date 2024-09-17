@@ -56,7 +56,7 @@
                               </a>
                           </li>
                           <li>
-                            <a class="show-cat-btn" href="">
+                            <a class="show-cat-btn" href="{{ route('produto.index')}}">
                                 <span class="icon folder" aria-hidden="true"></span>Produtos
                             </a>
                           </li>
@@ -87,7 +87,7 @@
                               <ul class="cat-sub-menu">
                               </ul>
                           </li>
-                          
+
                       </ul>
                 </div>
             </div>
@@ -214,10 +214,10 @@
                     </div>
                 </div>
             </nav>
-         
+
           @yield('conteudo')
-          
-        </div>        
+
+        </div>
     </div>
     <!-- Adicione no cabeçalho (head) da página ou no seu layout principal -->
 
