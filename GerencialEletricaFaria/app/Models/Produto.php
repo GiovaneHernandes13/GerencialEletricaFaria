@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Produto extends Model
 {
@@ -27,12 +28,17 @@ class Produto extends Model
     {
         return $this->belongsTo(Cest::class, 'id_cest', 'id_cest');
     }
-    
+
     public function ncm()
     {
         return $this->belongsTo(NCM::class, 'id_ncm', 'id_ncm');
     }
-    
+
+    // Relacionamento com Itens da Ordem de Serviço
+    public function itensOrdem(): HasMany
+    {
+        return $this->hasMany(ItensOrdem::class, 'id_produto', 'id_produto');
+    }
 
     protected $casts = [
         'preco' => 'decimal:2',

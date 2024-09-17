@@ -3,43 +3,42 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pessoa extends Model
 {
+    protected $table = 'pessoas';
+
     protected $fillable = [
-        'tipo', 
-        'cpf', 
-        'cnpj', 
-        'rg', 
-        'inscricao_estadual', 
-        'nome', 
-        'email', 
-        'telefone', 
-        'data_nascimento', 
-        'data_fundacao', 
-        'endereco', 
-        'cidade', 
-        'estado', 
-        'cep'
+        'tipo',
+        'cpf',
+        'cnpj',
+        'rg',
+        'inscricao_estadual',
+        'nome',
+        'email',
+        'telefone',
+        'data_nascimento',
+        'data_fundacao',
+        'id_endereco'
     ];
 
-    public static function boot()
+    // Define the relationship with the "Endereco" model
+    public function endereco(): BelongsTo
     {
-        parent::boot();
+        return $this->belongsTo(Endereco::class, 'id_endereco', 'id_endereco');
+    }
 
-        static::creating(function ($pessoa) {
-            if ($pessoa->tipo == 1) {
-                if (is_null($pessoa->cpf) || is_null($pessoa->rg) || !is_null($pessoa->cnpj) || !is_null($pessoa->inscricao_estadual)) {
-                    throw ValidationException::withMessages(['type' => 'Para Pessoa Física, CPF e RG devem ser preenchidos, e CNPJ e Inscrição Estadual devem ser nulos.']);
-                }
-            } elseif ($pessoa->tipo == 2) {
-                if (is_null($pessoa->cnpj) || is_null($pessoa->inscricao_estadual) || !is_null($pessoa->cpf) || !is_null($pessoa->rg)) {
-                    throw ValidationException::withMessages(['type' => 'Para Pessoa Jurídica, CNPJ e Inscrição Estadual devem ser preenchidos, e CPF e RG devem ser nulos.']);
-                }
-            } else {
-                throw ValidationException::withMessages(['type' => 'Tipo inválido.']);
-            }
-        });
+    // Custom logic for Pessoa Física or Pessoa Jurídica
+    public function isPessoaFisica(): bool
+    {
+        return $this->tipo === 1;
+    }
+
+    public function isPessoaJuridica(): bool
+    {
+        return $this->tipo === 2;
     }
 }
+
+
