@@ -31,8 +31,8 @@ class FuncionariosController extends Controller
             'rg' => 'required|string',
             'telefone' => 'required|numeric',
             'email' => 'required|string',
-            'data_contratacao' => 'required|string', 
-            'cargo' => 'required|string', 
+            'data_contratacao' => 'required|string',
+            'cargo' => 'required|string',
             'salario' => 'required|required|numeric',
         ]);
 
@@ -71,14 +71,14 @@ class FuncionariosController extends Controller
             'cargo' => 'required|string',
             'salario' => 'required|numeric',
         ]);
-        
+
         // Atualiza o produto com os dados validados
         $updated = $funcionario->update($validatedData);
-    
+
         if ($updated) {
             return redirect()->route('funcionarios.index')->with('message', 'Produto atualizado com sucesso!');
         }
-    
+
         return redirect()->back()->with('message', 'Erro ao atualizar o produto');
     }
 
