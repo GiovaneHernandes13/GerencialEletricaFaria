@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\OrdemServiçosController;
 use App\Http\Controllers\FuncionariosController;
-use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\PessoasController;
 use App\Http\Controllers\Itens_da_ordemController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -30,13 +30,13 @@ Route::put('/OrdemServiços/{OrdemServiço}', [OrdemServiçosController::class, 
 Route::delete('/OrdemServiços/{OrdemServiço}', [OrdemServiçosController::class, 'destroy'])->name('OrdemServiços.destroy');
 
 //Controller Funcionarios
-Route::get('/clientes', [ClientesController::class, 'index'])->name('clientes.index');
-Route::get('/clientes/create', [ClientesController::class, 'create'])->name('clientes.create');
-Route::post('/clientes', [ClientesController::class, 'store'])->name('clientes.store');
-Route::get('/clientes/{Cliente}', [ClientesController::class, 'show'])->name('clientes.show');
-Route::get('/clientes/{Cliente}/edit', [ClientesController::class, 'edit'])->name('clientes.edit');
-Route::put('/clientes/{Cliente}', [ClientesController::class, 'update'])->name('clientes.update');
-Route::delete('/clientes/{Cliente}', [ClientesController::class, 'destroy'])->name('clientes.destroy');
+Route::get('/clientes', [PessoasController::class, 'index'])->name('Pessoas.index');
+Route::get('/clientes/create', [PessoasController::class, 'create'])->name('Pessoas.create');
+Route::post('/clientes', [PessoasController::class, 'store'])->name('Pessoas.store');
+Route::get('/clientes/{Cliente}', [PessoasController::class, 'show'])->name('Pessoas.show');
+Route::get('/clientes/{Cliente}/edit', [PessoasController::class, 'edit'])->name('Pessoas.edit');
+Route::put('/clientes/{Cliente}', [PessoasController::class, 'update'])->name('Pessoas.update');
+Route::delete('/clientes/{Cliente}', [PessoasController::class, 'destroy'])->name('Pessoas.destroy');
 
 Route::get('/funcionarios', [FuncionariosController::class, 'index'])->name('funcionarios.index');
 Route::get('/funcionarios/funcionario', [FuncionariosController::class, 'create'])->name('funcionarios.create');
