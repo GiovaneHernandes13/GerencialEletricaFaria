@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pessoa;
 
-class ClientesController extends Controller
+class PessoasController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $pessoas = Pessoa::all();
+        return view('pessoa.pessoa', ['Pessoas' => $pessoas]);
     }
 
     /**
