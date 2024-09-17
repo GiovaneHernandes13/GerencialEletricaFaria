@@ -6,6 +6,7 @@ use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\OrdemServiçosController;
 use App\Http\Controllers\FuncionariosController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\Itens_da_ordemController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -37,14 +38,6 @@ Route::get('/clientes/{Cliente}/edit', [ClientesController::class, 'edit'])->nam
 Route::put('/clientes/{Cliente}', [ClientesController::class, 'update'])->name('clientes.update');
 Route::delete('/clientes/{Cliente}', [ClientesController::class, 'destroy'])->name('clientes.destroy');
 
-Route::get('/cests', [FuncionariosController::class, 'index'])->name('clientes.index');
-Route::get('/cests/cest', [FuncionariosController::class, 'create'])->name('clientes.create');
-Route::post('/cests', [FuncionariosController::class, 'store'])->name('clientes.store');
-Route::get('/cests/{cest}', [FuncionariosController::class, 'show'])->name('clientes.show');
-Route::get('/cests/{cest}/edit', [FuncionariosController::class, 'edit'])->name('clientes.edit');
-Route::put('/cests/{cest}', [FuncionariosController::class, 'update'])->name('clientes.update');
-Route::delete('/cests/{cest}', [FuncionariosController::class, 'destroy'])->name('clientes.destroy');
-
 Route::get('/funcionarios', [FuncionariosController::class, 'index'])->name('funcionarios.index');
 Route::get('/funcionarios/funcionario', [FuncionariosController::class, 'create'])->name('funcionarios.create');
 Route::post('/funcionarios', [FuncionariosController::class, 'store'])->name('funcionarios.store');
@@ -52,3 +45,13 @@ Route::get('/funcionarios/{funcionario}', [FuncionariosController::class, 'show'
 Route::get('/funcionarios/{funcionario}/edit', [FuncionariosController::class, 'edit'])->name('funcionarios.edit');
 Route::put('/funcionarios/{funcionario}', [FuncionariosController::class, 'update'])->name('funcionarios.update');
 Route::delete('/funcionarios/{funcionario}', [FuncionariosController::class, 'destroy'])->name('funcionarios.destroy');
+
+Route::get('/itens_da_ordem_serviço', [Itens_da_ordemController::class, 'index'])->name('itens_da_ordem_serviço.index');
+Route::get('/itens_da_ordem_serviço/itens_da_ordem_serviço', [Itens_da_ordemController::class, 'create'])->name('itens_da_ordem_serviço.create');
+Route::post('/itens_da_ordem_serviço', [Itens_da_ordemController::class, 'store'])->name('itens_da_ordem_serviço.store');
+Route::get('/itens_da_ordem_serviço/{itens_da_ordem_serviço}', [Itens_da_ordemController::class, 'show'])->name('itens_da_ordem_serviço.show');
+Route::get('/itens_da_ordem_serviço/{itens_da_ordem_serviço}/edit', [Itens_da_ordemController::class, 'edit'])->name('itens_da_ordem_serviço.edit');
+Route::put('/itens_da_ordem_serviço/{itens_da_ordem_serviço}', [Itens_da_ordemController::class, 'update'])->name('itens_da_ordem_serviço.update');
+Route::delete('/itens_da_ordem_serviço/{itens_da_ordem_serviço}', [Itens_da_ordemController::class, 'destroy'])->name('itens_da_ordem_serviço.destroy');
+
+
