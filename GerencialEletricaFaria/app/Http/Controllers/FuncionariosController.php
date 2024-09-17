@@ -28,17 +28,17 @@ class FuncionariosController extends Controller
         $validatedData = $request->validate([
             'nome' => 'required|string|max:255',
             'cpf' => 'required|numeric',
-            'rg' => 'required|string',
+            'rg' => 'required|string|max:20',
             'telefone' => 'required|numeric',
-            'email' => 'required|string',
-            'data_contratacao' => 'required|string',
-            'cargo' => 'required|string',
-            'salario' => 'required|required|numeric',
+            'email' => 'required|string|email|max:255',
+            'data_contratacao' => 'required|date',
+            'cargo' => 'required|string|max:100',
+            'salario' => 'required|numeric|min:0',
         ]);
 
         Funcionario::create($validatedData);
 
-        return redirect()->route('funcionarios.index')->with('message', 'Produto salvo com sucesso!');
+        return redirect()->route('funcionarios.index')->with('message', 'Funcionário salvo com sucesso!');
     }
 
     /**
