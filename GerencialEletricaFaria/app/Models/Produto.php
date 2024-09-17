@@ -23,15 +23,16 @@ class Produto extends Model
         'id_cest',
     ];
 
-    public function cest() 
+    public function cest()
     {
-        return $this->belongsTo(Cest::class, 'id_cest');
+        return $this->belongsTo(Cest::class, 'id_cest', 'id_cest');
     }
-
-    public function ncm() 
+    
+    public function ncm()
     {
-        return $this->belongsTo(Ncm::class, 'id_ncm');
+        return $this->belongsTo(NCM::class, 'id_ncm', 'id_ncm');
     }
+    
 
     protected $casts = [
         'preco' => 'decimal:2',
