@@ -27,10 +27,10 @@ class FuncionariosController extends Controller
     {
         $validatedData = $request->validate([
             'nome' => 'required|string|max:255',
-            'cpf' => 'required|numeric',
+            'cpf' => 'required|string|max:14', // Alterado para string se usar formato com pontos
             'rg' => 'required|string|max:20',
             'telefone' => 'required|numeric',
-            'email' => 'required|string|email|max:255',
+            'email' => 'required|email|max:255',
             'data_contratacao' => 'required|date',
             'cargo' => 'required|string|max:100',
             'salario' => 'required|numeric|min:0',
@@ -40,7 +40,6 @@ class FuncionariosController extends Controller
 
         return redirect()->route('funcionarios.index')->with('message', 'Funcionário salvo com sucesso!');
     }
-
     /**
      * Display the specified resource.
      */

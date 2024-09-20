@@ -20,8 +20,13 @@ class Pessoa extends Model
         'telefone',
         'data_nascimento',
         'data_fundacao',
-        'id_endereco'
+        'id_endereco',
+        'razao_social',
+        'fantasia',
+        'apelido'
     ];
+
+
 
     // Define the relationship with the "Endereco" model
     public function endereco(): BelongsTo
