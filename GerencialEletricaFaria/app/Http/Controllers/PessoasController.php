@@ -51,8 +51,8 @@ class PessoasController extends Controller
             'razao_social' => 'nullable|required_if:tipo,2|string|max:255',
             'fantasia_apelido' => 'nullable|required_if:tipo,1|string|max:255',
             'fantasia' => 'nullable|required_if:tipo,2|string|max:255',
-            'cpf' => 'nullable|required_if:tipo,1|cpf|unique:pessoas,cpf,' . $id,  // Validação de CPF
-            'cnpj' => 'nullable|required_if:tipo,2|cnpj|unique:pessoas,cnpj,' . $id,  // Validação de CNPJ
+            'cpf' => 'nullable|required_if:tipo,1|cpf|unique:pessoas,cpf,' . $id,
+            'cnpj' => 'nullable|required_if:tipo,2|cnpj|unique:pessoas,cnpj,' . $id,
             'rg' => 'nullable|required_if:tipo,1|string|max:20',
             'inscricao_estadual' => 'nullable|required_if:tipo,2|string|max:20',
             'email' => 'required|email|max:255',

@@ -11,7 +11,7 @@ class OrdemServiçosController extends Controller
      */
     public function index()
     {
-        //
+        return view('ordem_de_servico.os');
     }
 
     /**
