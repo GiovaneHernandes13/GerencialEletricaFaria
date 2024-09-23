@@ -27,7 +27,7 @@ class FuncionariosController extends Controller
     {
         $validatedData = $request->validate([
             'nome' => 'required|string|max:255',
-            'cpf' => 'required|string|max:14', // Alterado para string se usar formato com pontos
+            'cpf' => 'required|string|max:14',
             'rg' => 'required|string|max:20',
             'telefone' => 'required|numeric',
             'email' => 'required|email|max:255',
@@ -35,11 +35,12 @@ class FuncionariosController extends Controller
             'cargo' => 'required|string|max:100',
             'salario' => 'required|numeric|min:0',
         ]);
-
+    
         Funcionario::create($validatedData);
-
+    
         return redirect()->route('funcionarios.index')->with('message', 'Funcionário salvo com sucesso!');
     }
+    
     /**
      * Display the specified resource.
      */
@@ -75,10 +76,10 @@ class FuncionariosController extends Controller
         $updated = $funcionario->update($validatedData);
 
         if ($updated) {
-            return redirect()->route('funcionarios.index')->with('message', 'Produto atualizado com sucesso!');
+            return redirect()->route('funcionarios.index')->with('message', 'Funcionario atualizado com sucesso!');
         }
 
-        return redirect()->back()->with('message', 'Erro ao atualizar o produto');
+        return redirect()->back()->with('message', 'Erro ao atualizar o Funcionario');
     }
 
     /**

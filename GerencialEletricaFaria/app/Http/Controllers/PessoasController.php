@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use App\Models\Pessoa;
 
 class PessoasController extends Controller
@@ -14,9 +13,8 @@ class PessoasController extends Controller
     public function index()
     {
         $pessoas = Pessoa::all();
-        return view('clients.index', ['Pessoas' => $pessoas]);
+        return view('clients.index', ['pessoas' => $pessoas]); // Mantenha 'pessoas' em minúsculas
     }
-
 
     public function create()
     {
@@ -25,9 +23,50 @@ class PessoasController extends Controller
 
     public function store(Request $request)
     {
-
+        // Validação baseada no tipo de pessoa
+        if ($request->input('tipo') == 1) {
+            // Validação para Pessoa Física
+            $validatedData = $request->validate([
+                'tipo' => 'required|integer|in:1,2',
+                'cpf' => 'required|string|max:11|unique:pessoas,cpf',
+                'rg' => 'required|string|max:20',
+                'nome' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:pessoas,email',
+                'telefone' => 'required|string|max:15',
+                'data_nascimento' => 'required|date',
+                'apelido' => 'nullable|string|max:255',
+            ]);
+        } elseif ($request->input('tipo') == 2) {
+            // Validação para Pessoa Jurídica
+            $validatedData = $request->validate([
+                'tipo' => 'required|integer|in:1,2',
+                'cnpj' => 'required|string|max:14|unique:pessoas,cnpj',
+                'inscricao_estadual' => 'required|string|max:20',
+                'razao_social' => 'required|string|max:255',
+                'fantasia' => 'nullable|string|max:255',
+                'email' => 'required|string|email|max:255|unique:pessoas,email',
+                'telefone' => 'required|string|max:15',
+                'data_fundacao' => 'required|date',
+            ]);
+    
+            // Preenchendo o campo 'nome' com 'razao_social' para Pessoa Jurídica
+            $validatedData['nome'] = $validatedData['razao_social'];
+        } else {
+            return back()->withErrors(['tipo' => 'Tipo inválido']);
+        }
+    
+        // Adicione o campo id_endereco, se necessário
+        // $validatedData['id_endereco'] = $request->input('id_endereco'); // Descomente se o campo id_endereco estiver disponível
+    
+        // Inserção no banco de dados
+        \App\Models\Pessoa::create($validatedData);
+    
+        // Redireciona com sucesso
+        return redirect()->route('pessoas.index')->with('success', 'Pessoa cadastrada com sucesso!');
     }
-
+    
+    
+    
     public function show($id)
     {
         $pessoa = Pessoa::findOrFail($id);
@@ -45,37 +84,47 @@ class PessoasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'tipo' => 'required|in:1,2',
-            'nome_razao_social' => 'nullable|required_if:tipo,1|string|max:255',
-            'razao_social' => 'nullable|required_if:tipo,2|string|max:255',
-            'fantasia_apelido' => 'nullable|required_if:tipo,1|string|max:255',
-            'fantasia' => 'nullable|required_if:tipo,2|string|max:255',
-            'cpf' => 'nullable|required_if:tipo,1|cpf|unique:pessoas,cpf,' . $id,
-            'cnpj' => 'nullable|required_if:tipo,2|cnpj|unique:pessoas,cnpj,' . $id,
-            'rg' => 'nullable|required_if:tipo,1|string|max:20',
-            'inscricao_estadual' => 'nullable|required_if:tipo,2|string|max:20',
-            'email' => 'required|email|max:255',
-            'telefone' => 'required|string|max:20',
-        ]);
-
+        // Validação baseada no tipo de pessoa
+        if ($request->input('tipo') == 1) {
+            // Validação para Pessoa Física
+            $validatedData = $request->validate([
+                'tipo' => 'required|integer|in:1,2',
+                'cpf' => 'required|string|max:11|unique:pessoas,cpf,' . $id,
+                'rg' => 'required|string|max:20',
+                'nome' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:pessoas,email,' . $id,
+                'telefone' => 'required|string|max:15',
+                'data_nascimento' => 'required|date',
+                'id_endereco' => 'required|integer|exists:enderecos,id_endereco',
+                'apelido' => 'nullable|string|max:255',
+            ]);
+        } elseif ($request->input('tipo') == 2) {
+            // Validação para Pessoa Jurídica
+            $validatedData = $request->validate([
+                'tipo' => 'required|integer|in:1,2',
+                'cnpj' => 'required|string|max:14|unique:pessoas,cnpj,' . $id,
+                'inscricao_estadual' => 'required|string|max:20',
+                'razao_social' => 'required|string|max:255',
+                'fantasia' => 'nullable|string|max:255',
+                'email' => 'required|string|email|max:255|unique:pessoas,email,' . $id,
+                'telefone' => 'required|string|max:15',
+                'data_fundacao' => 'required|date',
+                'id_endereco' => 'required|integer|exists:enderecos,id_endereco',
+            ]);
+        } else {
+            return back()->withErrors(['tipo' => 'Tipo inválido']);
+        }
+    
+        // Encontra a pessoa no banco de dados
         $pessoa = Pessoa::findOrFail($id);
-        $pessoa->update([
-            'tipo' => $request->tipo,
-            'nome' => $request->input('tipo') == 1 ? $request->nome_razao_social : null,
-            'razao_social' => $request->input('tipo') == 2 ? $request->razao_social : null,
-            'fantasia' => $request->input('tipo') == 2 ? $request->fantasia : null,
-            'apelido' => $request->input('tipo') == 1 ? $request->fantasia_apelido : null,
-            'cpf' => $request->input('tipo') == 1 ? $request->cpf : null,
-            'cnpj' => $request->input('tipo') == 2 ? $request->cnpj : null,
-            'rg' => $request->input('tipo') == 1 ? $request->rg : null,
-            'inscricao_estadual' => $request->input('tipo') == 2 ? $request->inscricao_estadual : null,
-            'email' => $request->email,
-            'telefone' => $request->telefone,
-        ]);
-
-        return redirect()->route('pessoas.index')->with('success', 'Cliente atualizado com sucesso!');
+    
+        // Atualiza os dados no banco de acordo com o tipo
+        $pessoa->update($validatedData);
+    
+        // Redireciona com sucesso
+        return redirect()->route('pessoas.index')->with('success', 'Pessoa atualizada com sucesso!');
     }
+    
 
     /**
      * Remover uma pessoa específica.
