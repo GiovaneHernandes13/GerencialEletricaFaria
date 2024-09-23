@@ -109,8 +109,7 @@
                 <div class="container main-nav">
                     <div class="main-nav-start">
                         <div class="search-wrapper">
-                            <i data-feather="search" aria-hidden="true"></i>
-                            <input type="text" placeholder="Enter keywords ..." required>
+                            <h1>M.A. DE FARIA ELÉTRICA </h1>
                         </div>
                     </div>
                     <div class="main-nav-end">
