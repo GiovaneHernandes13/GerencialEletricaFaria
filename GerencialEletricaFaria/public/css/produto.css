@@ -3,36 +3,56 @@
 .container_produtos {
     font-family: "SUSE", sans-serif;
 }
+
+/* Estilo da tabela */
+.table {
+    width: 100%; /* Ocupa 100% da largura da tela */
+    border-collapse: collapse; /* Remove espaços entre bordas */
+    margin: 20px 0; /* Espaço acima e abaixo da tabela */
+}
+
 /* Títulos das colunas */
-.titulos {
-    display: flex;
-    padding: 10px 0;
-    border-bottom: 2px solid #ddd;
-    color: #8442ff;
-    font-size: 18px;
+.table-header {
+    background-color: #f4f4f4; /* Cor de fundo do cabeçalho */
+    color: #8442ff; /* Cor do texto */
+    font-size: 18px; /* Tamanho da fonte */
+    padding: 10px; /* Espaçamento interno do cabeçalho */
+    border: 2px solid #ddd; /* Borda do cabeçalho */
+    text-align: left; /* Alinhamento do texto à esquerda */
 }
 
-.titulo_id {
-    margin-left: 5px;
+/* Estilos para as células da tabela */
+.table-cell {
+    padding: 15px; /* Espaçamento interno das células */
+    border: 1px solid #ddd; /* Borda das células */
 }
 
-/* Estilos para cada título */
-.titulo_nome {
-    flex: 2;
-    margin-left: 180px;
+/* Estilo para a linha da tabela ao passar o mouse */
+.table-row:hover {
+    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
 }
 
-.titulo_descricao {
-    flex: 3;
-    margin-right: 170px;
+/* Estilo para a coluna de ações */
+.icons-container {
+    display: flex; /* Usando flexbox para alinhar ícones */
+    justify-content: flex-start; /* Alinhamento à esquerda */
+    gap: 10px; /* Espaçamento entre os ícones */
 }
 
-.titulo_preco {
-    flex: 1;
-    margin-right: 57px;
+/* Ícones */
+.icons {
+    width: 24px; /* Largura dos ícones */
+    height: 24px; /* Altura dos ícones */
 }
 
-/* Estilo da lista de produtos */
+/* Botão de exclusão */
+.delete-button {
+    background: none; /* Remove o fundo do botão */
+    border: none; /* Remove a borda do botão */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+}
+
+/* Estilos para a lista de produtos */
 ul {
     color: rgb(50, 50, 50);
     list-style-type: none;
@@ -46,11 +66,6 @@ ul {
     padding: 5px 0;
     border-bottom: 1px solid #ddd;
     font-size: 15px;
-}
-
-.id_produto {
-    flex: 1;
-    margin-left: 20px;
 }
 
 /* Estilos para nome, descrição e preço dentro dos itens */
@@ -72,40 +87,7 @@ ul {
     margin-right: 100px;
 }
 
-/* Contêiner para os ícones */
-.icons-container {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-}
-
-.icons {
-    height: 30px;
-    width: 30px;
-}
-
-a {
-    text-decoration: none;
-}
-
-a:hover .icons {
-    opacity: 0.7;
-}
-
-.list_prod > div {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.search-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 50px;
-    justify-content: space-between;
-}
-
+/* Estilos para botões e inputs */
 .btn_add {
     background-color: #6427d6;
     width: 120px;

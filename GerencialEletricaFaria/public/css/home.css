@@ -13,5 +13,31 @@
     color: green;
 }
 
-.formcreatecliente {
+.input-group {
+    margin-bottom: 15px;
+}
+.input-icon {
+    position: relative;
+}
+.input-icon i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+.input-icon input {
+    padding-left: 30px;
+    width: 100%;
+}
+
+.container_os{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.grupo{
+    display: flex;
+    flex-direction: column;
 }
