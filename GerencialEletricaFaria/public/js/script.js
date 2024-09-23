@@ -639,3 +639,17 @@ function searchProducts() {
         }
     }
 }
+
+const quantidadeInput = document.getElementById('quantidade_servico');
+const precoInput = document.getElementById('preco_unitario_servico');
+const totalInput = document.getElementById('total_servico');
+
+function calcularTotal() {
+    const quantidade = parseFloat(quantidadeInput.value) || 0;
+    const precoUnitario = parseFloat(precoInput.value) || 0;
+    const total = quantidade * precoUnitario;
+    totalInput.value = total.toFixed(2); // Formata o total para duas casas decimais
+}
+
+quantidadeInput.addEventListener('input', calcularTotal);
+precoInput.addEventListener('input', calcularTotal);

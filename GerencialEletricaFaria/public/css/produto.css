@@ -1,116 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap");
 
-.container_produtos {
-    font-family: "SUSE", sans-serif;
-}
-
-/* Estilo da tabela */
 .table {
-    width: 100%; /* Ocupa 100% da largura da tela */
-    border-collapse: collapse; /* Remove espaços entre bordas */
-    margin: 20px 0; /* Espaço acima e abaixo da tabela */
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
 }
 
-/* Títulos das colunas */
 .table-header {
-    background-color: #f4f4f4; /* Cor de fundo do cabeçalho */
-    color: #8442ff; /* Cor do texto */
-    font-size: 18px; /* Tamanho da fonte */
-    padding: 10px; /* Espaçamento interno do cabeçalho */
-    border: 2px solid #ddd; /* Borda do cabeçalho */
-    text-align: left; /* Alinhamento do texto à esquerda */
+    background-color: #000000;
+    color: #ffffff;
 }
 
-/* Estilos para as células da tabela */
 .table-cell {
-    padding: 15px; /* Espaçamento interno das células */
-    border: 1px solid #ddd; /* Borda das células */
-}
-
-/* Estilo para a linha da tabela ao passar o mouse */
-.table-row:hover {
-    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
-}
-
-/* Estilo para a coluna de ações */
-.icons-container {
-    display: flex; /* Usando flexbox para alinhar ícones */
-    justify-content: flex-start; /* Alinhamento à esquerda */
-    gap: 10px; /* Espaçamento entre os ícones */
-}
-
-/* Ícones */
-.icons {
-    width: 24px; /* Largura dos ícones */
-    height: 24px; /* Altura dos ícones */
-}
-
-/* Botão de exclusão */
-.delete-button {
-    background: none; /* Remove o fundo do botão */
-    border: none; /* Remove a borda do botão */
-    cursor: pointer; /* Muda o cursor ao passar o mouse */
-}
-
-/* Estilos para a lista de produtos */
-ul {
-    color: rgb(50, 50, 50);
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
-}
-
-/* Estilo para itens de produtos */
-.list_prod {
-    display: flex;
-    padding: 5px 0;
-    border-bottom: 1px solid #ddd;
-    font-size: 15px;
-}
-
-/* Estilos para nome, descrição e preço dentro dos itens */
-.nome_produto {
-    flex: 2;
-}
-
-.descricao_produto {
-    flex: 3;
+    padding: 15px;
     text-align: left;
-    margin-left: 10px;
+    border-bottom: 1px solid #dddddd;
 }
 
-.preco_produto {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-right: 100px;
-}
-
-/* Estilos para botões e inputs */
-.btn_add {
-    background-color: #6427d6;
-    width: 120px;
-    height: 40px;
-    border-radius: 3px;
-    border: solid black 1px;
-    margin-right: 20px;
-    margin-top: 10px;
+.table-cell:last-child {
     text-align: center;
+}
+
+.table-row:hover {
+    background-color: #f1f1f1;
+}
+
+.icons-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    color: aliceblue;
+    gap: 10px;
 }
 
-.btn_add:hover {
-    background-color: #bea0f5;
-    color: aliceblue;
+.icons {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s;
 }
 
-.inputprod {
-    width: 300px;
+.icons:hover {
+    transform: scale(1.1);
 }
-.inputprod2 {
-    width: 900px;
+
+.delete-button {
+    border: none;
+    background: none;
+    cursor: pointer;
 }

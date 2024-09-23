@@ -1470,7 +1470,7 @@ label {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    background-color: #363636 !important;
+    background-color: #000000 !important;
     width: 253px;
     padding: 20px 15px 37px 20px;
     -webkit-transition: 0.5s all;
@@ -1494,7 +1494,7 @@ label {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .sidebar-body {
     padding-top: 20px;
