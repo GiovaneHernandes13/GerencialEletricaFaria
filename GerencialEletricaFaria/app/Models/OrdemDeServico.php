@@ -5,19 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Pessoa;
+use App\Models\Status;
+use App\Models\ItensOrdem;
+
 
 class OrdemDeServico extends Model
 {
     protected $table = 'ORDEM_DE_SERVICOS';
     protected $primaryKey = 'id_ordem_servico';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'id_funcionario',
         'data_abertura',
         'data_fechamento',
         'descricao_servico',
-        'quantidade',
-        'preco_unitario',
+        'quantidade_servico',
+        'preco_unitario_servico',
         'id_status',
         'id_pessoa',
     ];
