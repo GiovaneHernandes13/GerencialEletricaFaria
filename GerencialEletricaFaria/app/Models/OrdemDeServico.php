@@ -24,8 +24,10 @@ class OrdemDeServico extends Model
         'descricao_servico',
         'quantidade_servico',
         'preco_unitario_servico',
+        'total_servico',
         'id_status',
         'id_pessoa',
+        'nome_ordem',
     ];
 
     // Relacionamento com Pessoa
