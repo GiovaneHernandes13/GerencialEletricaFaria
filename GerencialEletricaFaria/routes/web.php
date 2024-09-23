@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdutosController;
-use App\Http\Controllers\OrdemServiçosController;
+use App\Http\Controllers\OrdemDeServicoController;
 use App\Http\Controllers\FuncionariosController;
 use App\Http\Controllers\PessoasController;
 use App\Http\Controllers\Itens_da_ordemController;
@@ -20,13 +20,13 @@ Route::put('/produtos/{produto}', [ProdutosController::class, 'update'])->name('
 Route::delete('/produtos/{produto}', [ProdutosController::class, 'destroy'])->name('produto.destroy');
 
 //Controller OrdemServiço
-Route::get('/OrdemServiços', [OrdemServiçosController::class, 'index'])->name('OrdemServiços.index');
-Route::get('/OrdemServiços/create', [OrdemServiçosController::class, 'create'])->name('OrdemServiços.create');
-Route::post('/OrdemServiços', [OrdemServiçosController::class, 'store'])->name('OrdemServiços.sstore');
-Route::get('/OrdemServiços/{OrdemServiço}', [OrdemServiçosController::class, 'show'])->name('OrdemServiços.show');
-Route::get('/OrdemServiços/{OrdemServiço}/edit', [OrdemServiçosController::class, 'edit'])->name('OrdemServiços.edit');
-Route::put('/OrdemServiços/{OrdemServiço}', [OrdemServiçosController::class, 'update'])->name('OrdemServiços.update');
-Route::delete('/OrdemServiços/{OrdemServiço}', [OrdemServiçosController::class, 'destroy'])->name('OrdemServiços.destroy');
+Route::get('/OrdemServiços', [OrdemDeServicoController::class, 'index'])->name('OrdemServiços.index');
+Route::get('/OrdemServiços/create', [OrdemDeServicoController::class, 'create'])->name('OrdemServiços.create');
+Route::post('/OrdemServiços', [OrdemDeServicoController::class, 'store'])->name('OrdemServiços.store'); // Corrigido de sstore para store
+Route::get('/OrdemServiços/{OrdemServiço}', [OrdemDeServicoController::class, 'show'])->name('OrdemServiços.show');
+Route::get('/OrdemServiços/{OrdemServiço}/edit', [OrdemDeServicoController::class, 'edit'])->name('OrdemServiços.edit');
+Route::put('/OrdemServiços/{OrdemServiço}', [OrdemDeServicoController::class, 'update'])->name('OrdemServiços.update');
+Route::delete('/OrdemServiços/{OrdemServiço}', [OrdemDeServicoController::class, 'destroy'])->name('OrdemServiços.destroy');
 
 //Controller Clientes
 Route::get('/clientes', [PessoasController::class, 'index'])->name('pessoas.index');
@@ -47,12 +47,11 @@ Route::put('/funcionarios/{funcionario}', [FuncionariosController::class, 'updat
 Route::delete('/funcionarios/{funcionario}', [FuncionariosController::class, 'destroy'])->name('funcionarios.destroy');
 
 //Controller Intens da Ordem
-Route::get('/itens_da_ordem_serviço', [Itens_da_ordemController::class, 'index'])->name('itens_da_ordem_serviço.index');
-Route::get('/itens_da_ordem_serviço/itens_da_ordem_serviço', [Itens_da_ordemController::class, 'create'])->name('itens_da_ordem_serviço.create');
-Route::post('/itens_da_ordem_serviço', [Itens_da_ordemController::class, 'store'])->name('itens_da_ordem_serviço.store');
-Route::get('/itens_da_ordem_serviço/{itens_da_ordem_serviço}', [Itens_da_ordemController::class, 'show'])->name('itens_da_ordem_serviço.show');
-Route::get('/itens_da_ordem_serviço/{itens_da_ordem_serviço}/edit', [Itens_da_ordemController::class, 'edit'])->name('itens_da_ordem_serviço.edit');
-Route::put('/itens_da_ordem_serviço/{itens_da_ordem_serviço}', [Itens_da_ordemController::class, 'update'])->name('itens_da_ordem_serviço.update');
-Route::delete('/itens_da_ordem_serviço/{itens_da_ordem_serviço}', [Itens_da_ordemController::class, 'destroy'])->name('itens_da_ordem_serviço.destroy');
-
+Route::get('/OrdemServiços/{OrdemServiço}/itens', [ItensDaOrdemController::class, 'index'])->name('itens_ordem.index');
+Route::get('/OrdemServiços/{OrdemServiço}/itens/create', [ItensDaOrdemController::class, 'create'])->name('itens_ordem.create');
+Route::post('/OrdemServiços/{OrdemServiço}/itens', [ItensDaOrdemController::class, 'store'])->name('itens_ordem.store');
+Route::get('/OrdemServiços/{OrdemServiço}/itens/{item}', [ItensDaOrdemController::class, 'show'])->name('itens_ordem.show');
+Route::get('/OrdemServiços/{OrdemServiço}/itens/{item}/edit', [ItensDaOrdemController::class, 'edit'])->name('itens_ordem.edit');
+Route::put('/OrdemServiços/{OrdemServiço}/itens/{item}', [ItensDaOrdemController::class, 'update'])->name('itens_ordem.update');
+Route::delete('/OrdemServiços/{OrdemServiço}/itens/{item}', [ItensDaOrdemController::class, 'destroy'])->name('itens_ordem.destroy');
 
