@@ -25,26 +25,31 @@
                     @endforeach
                 </select>
             </div>
+            <div class="form-group">
+                <label for="data_abertura">Data de Abertura:</label>
+                <input type="date" name="data_abertura" id="data_abertura" class="form-control" required>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="data_abertura">Data de Abertura:</label>
-            <input type="date" name="data_abertura" id="data_abertura" class="form-control" required>
-        </div>
-
-        <div class="form-group">
+        <div class="grupo">
             <label for="descricao_servico">Descrição do Serviço:</label>
-            <textarea name="descricao_servico" id="descricao_servico" class="form-control" required></textarea>
+            <textarea color="white" name="descricao_servico" id="descricao_servico" class="form-control" required></textarea>
         </div>
-
-        <div class="form-group">
-            <label for="quantidade_servico">Quantidade de Serviço:</label>
-            <input type="number" name="quantidade_servico" id="quantidade_servico" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label for="preco_unitario_servico">Preço Unitário:</label>
-            <input type="number" name="preco_unitario_servico" id="preco_unitario_servico" class="form-control" step="0.01" required>
+        <div class="precos">
+            <div class="form-group">
+                <label for="quantidade_servico">Quantidade:</label>
+                <input type="number" name="quantidade_servico" id="quantidade_servico" class="input_qtd" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="preco_unitario_servico">Preço Unitário:</label>
+                <input type="number" name="preco_unitario_servico" id="preco_unitario_servico" class="input_uni" step="0.01" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="total_servico">Total:</label>
+                <input type="number" name="total_servico" id="total_servico" class="input_total" step="0.01" required readonly>
+            </div>
         </div>
 
         <div class="form-group">
@@ -65,4 +70,19 @@
 
         <button type="submit" class="btn btn-primary">Criar O.S.</button>
     </form>
+    <script>
+        const quantidadeInput = document.getElementById('quantidade_servico');
+        const precoInput = document.getElementById('preco_unitario_servico');
+        const totalInput = document.getElementById('total_servico');
+    
+        function calcularTotal() {
+            const quantidade = parseFloat(quantidadeInput.value) || 0;
+            const precoUnitario = parseFloat(precoInput.value) || 0;
+            const total = quantidade * precoUnitario;
+            totalInput.value = total.toFixed(2); // Formata o total para duas casas decimais
+        }
+    
+        quantidadeInput.addEventListener('input', calcularTotal);
+        precoInput.addEventListener('input', calcularTotal);
+    </script>
 @endsection
