@@ -14,7 +14,7 @@
                 <a href="{{ route('funcionarios.show', ['funcionario' => $funcionario->id_funcionario]) }}">
                     <img class="icons" src="./img/documento.png" alt="Ver detalhes">
                 </a>
-                <form action="{{ route('funcionarios.destroy', $funcionario) }}" method="POST" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir este produto?');">
+                <form action="{{ route('funcionarios.destroy', $funcionario) }}" method="POST" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir este Funcionario?');">
                     @csrf
                     @method('DELETE')
                     <button type="submit">
