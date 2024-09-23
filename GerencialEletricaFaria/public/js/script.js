@@ -621,19 +621,21 @@ document.addEventListener("DOMContentLoaded", function () {
     addData();
 });
 
-document.getElementById("searchProduct").addEventListener("input", function () {
-    var filter = this.value.toLowerCase();
-    var productList = document.getElementById("productList");
-    var products = productList.getElementsByClassName("list_prod");
+function searchProducts() {
+    const input = document.getElementById('searchProduct');
+    const filter = input.value.toLowerCase();
+    const table = document.getElementById('productList');
+    const rows = table.getElementsByTagName('tr');
 
-    Array.from(products).forEach(function (product) {
-        var productName = product
-            .getElementsByClassName("nome_produto")[0]
-            .textContent.toLowerCase();
-        if (productName.includes(filter)) {
-            product.style.display = "";
+    for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        let id = cells[0].innerText.toLowerCase(); // ID na primeira coluna
+        let nome = cells[1].innerText.toLowerCase(); // Nome na segunda coluna
+
+        if (id.includes(filter) || nome.includes(filter)) {
+            rows[i].style.display = ''; // Mostra a linha
         } else {
-            product.style.display = "none";
+            rows[i].style.display = 'none'; // Esconde a linha
         }
-    });
-});
+    }
+}
