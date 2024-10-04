@@ -15,9 +15,6 @@ class Pessoa extends Model
         'razao_social', 'fantasia', 'apelido'
     ];
     
-
-
-
     // Define the relationship with the "Endereco" model
     public function endereco(): BelongsTo
     {

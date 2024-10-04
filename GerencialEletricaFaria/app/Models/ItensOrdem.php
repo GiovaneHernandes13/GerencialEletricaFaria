@@ -15,6 +15,7 @@ class ItensOrdem extends Model
         'quantidade',
         'preco_unitario',
         'id_ordem_servico',
+        'total_produto',
     ];
 
     // Relacionamento com Produto
