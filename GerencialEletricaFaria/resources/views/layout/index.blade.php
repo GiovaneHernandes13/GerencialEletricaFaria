@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/test.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/produto.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/os.css') }}">
     <link rel="preconnect" href="{{ asset('https://fonts.googleapis.com')}}">
     <link rel="preconnect" href="{{ asset('https://fonts.gstatic.com')}}" crossorigin>
     <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap')}}">
@@ -46,17 +47,17 @@
                               </a>
                           </li>
                           <li>
-                              <a class="show-cat-btn" href=''>
+                              <a href="OrdemServiços">
                                   <span class="icon document" aria-hidden="true"></span>Ordem de Serviço
                               </a>
                           </li>
                           <li>
-                              <a class="show-cat-btn" href="">
+                              <a href="/clientes">
                                   <span class="icon user-3" aria-hidden="true"></span>Clientes
                               </a>
                           </li>
                           <li>
-                            <a class="show-cat-btn" href="{{ route('produto.index')}}">
+                            <a href="produtos">
                                 <span class="icon folder" aria-hidden="true"></span>Produtos
                             </a>
                           </li>
@@ -218,16 +219,15 @@
 
         </div>
     </div>
-    <!-- Adicione no cabeçalho (head) da página ou no seu layout principal -->
 
-
-    <!-- Adicione antes de fechar o body -->
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- Select2 library -->
+    <script src="{{ asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js') }}"></script>
     <!-- Chart library -->
-    <script src="./plugins/chart.min.js"></script>
+    <script src="{{ asset('plugins/chart.min.js') }}"></script>
     <!-- Icons library -->
-    <script src="plugins/feather.min.js"></script>
+    <script src="{{ asset('plugins/feather.min.js') }}"></script>
     <!-- Custom scripts -->
-    <script src="js/script.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+
 </body>
 </html>

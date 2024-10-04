@@ -70,6 +70,13 @@
             <input type="text" id="razao_social" name="razao_social" placeholder="Digite a Razão Social">
         </div>
     </div>
+    <div id="nome-group" class="input-group">
+        <label for="nome">Nome:</label>
+        <div class="input-icon">
+            <i class="fas fa-user"></i>
+            <input type="text" id="nome" name="nome" required placeholder="Digite o nome">
+        </div>
+    </div>
 
     <div id="fantasia-group" class="input-group" style="display:none;">
         <label for="fantasia">Nome Fantasia:</label>
