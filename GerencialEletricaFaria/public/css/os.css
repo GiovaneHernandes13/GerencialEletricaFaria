@@ -1,0 +1,35 @@
+#itens_ordem {
+    display: flex;
+    flex-direction: column; /* Mantém a estrutura de coluna para o título e o botão Adicionar */
+}
+
+.item_ordem {
+    display: flex;          /* Altera o layout para flex */
+    flex-direction: row;   /* Alinha os itens em linha */
+    align-items: center;   /* Alinha verticalmente no centro */
+    margin-bottom: 10px;   /* Espaçamento entre os itens */
+}
+
+.produto, .qtd, .uni {
+    margin-right: 10px;    /* Espaçamento entre os itens */
+}
+
+.remove-item {
+    margin-left: 10px;     /* Espaçamento à esquerda do botão Remover */
+}
+
+.BotaoAddNewIten {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
+}
+
+/* Efeito de hover */
+.BotaoAddNewIten:hover {
+    background-color: #0056b3; /* Cor de fundo azul escuro ao passar o mouse */
+}

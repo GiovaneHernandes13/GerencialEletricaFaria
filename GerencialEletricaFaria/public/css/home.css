@@ -31,29 +31,30 @@
     width: 100%;
 }
 
-.container_os{
+.container_os {
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    gap: 20px;
 }
 
-.grupo{
+.container-servicos {
     display: flex;
-    flex-direction: column;
+    gap: 20px;
 }
 
-.precos{
-    display: flex;
-}
-
-.input_qtd{
+.input_qtd {
     width: 70px;
 }
 
-.input_uni{
+.input_uni {
     width: 150px;
 }
 
-.input_total{
+.input_total {
     width: 150px;
+}
+
+.Descricao{
+    display: flex;
+    flex-direction: column;
 }
