@@ -20,13 +20,13 @@ Route::put('/produtos/{produto}', [ProdutosController::class, 'update'])->name('
 Route::delete('/produtos/{produto}', [ProdutosController::class, 'destroy'])->name('produto.destroy');
 
 //Controller OrdemServiço
-Route::get('/OrdemServiços', [OrdemDeServicoController::class, 'index'])->name('OrdemServiços.index');
-Route::get('/OrdemServiços/create', [OrdemDeServicoController::class, 'create'])->name('OrdemServiços.create');
-Route::post('/OrdemServiços', [OrdemDeServicoController::class, 'store'])->name('OrdemServiços.store'); // Corrigido de sstore para store
-Route::get('/OrdemServiços/{OrdemServiço}', [OrdemDeServicoController::class, 'show'])->name('OrdemServiços.show');
-Route::get('/OrdemServiços/{OrdemServiço}/edit', [OrdemDeServicoController::class, 'edit'])->name('OrdemServiços.edit');
-Route::put('/OrdemServiços/{OrdemServiço}', [OrdemDeServicoController::class, 'update'])->name('OrdemServiços.update');
-Route::delete('/OrdemServiços/{OrdemServiço}', [OrdemDeServicoController::class, 'destroy'])->name('OrdemServiços.destroy');
+Route::get('/OrdemServiços', [OrdemDeServicoController::class, 'index'])->name('OrdemServicos.index');
+Route::get('/OrdemServiços/create', [OrdemDeServicoController::class, 'create'])->name('OrdemServicos.create');
+Route::post('/OrdemServiços', [OrdemDeServicoController::class, 'store'])->name('OrdemServicos.store'); // Corrigido de sstore para store
+Route::get('/OrdemServiços/{OrdemServiço}', [OrdemDeServicoController::class, 'show'])->name('OrdemServicos.show');
+Route::get('/OrdemServiços/{OrdemServiço}/edit', [OrdemDeServicoController::class, 'edit'])->name('OrdemServicos.edit');
+Route::put('/OrdemServiços/{OrdemServiço}', [OrdemDeServicoController::class, 'update'])->name('OrdemServicos.update');
+Route::delete('/OrdemServicos/{id}', [OrdemDeServicoController::class, 'destroy'])->name('OrdemServicos.destroy');
 
 //Controller Clientes
 Route::get('/clientes', [PessoasController::class, 'index'])->name('pessoas.index');
