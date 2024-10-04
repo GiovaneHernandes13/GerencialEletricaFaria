@@ -52,16 +52,11 @@ class PessoasController extends Controller
             // Preenchendo o campo 'nome' com 'razao_social' para Pessoa Jurídica
             $validatedData['nome'] = $validatedData['razao_social'];
         } else {
-            return back()->withErrors(['tipo' => 'Tipo inválido']);
+            return back()->withErrors(['tipo' => 'Tipo invalido']);
         }
     
-        // Adicione o campo id_endereco, se necessário
-        // $validatedData['id_endereco'] = $request->input('id_endereco'); // Descomente se o campo id_endereco estiver disponível
-    
-        // Inserção no banco de dados
         \App\Models\Pessoa::create($validatedData);
     
-        // Redireciona com sucesso
         return redirect()->route('pessoas.index')->with('success', 'Pessoa cadastrada com sucesso!');
     }
     
@@ -69,19 +64,16 @@ class PessoasController extends Controller
     
     public function show($id)
     {
-        $pessoa = Pessoa::findOrFail($id);
-        return view('pessoa.show', compact('pessoa'));
+        $pessoas = Pessoa::findOrFail($id);
+        return view('clients.show', compact('pessoas'));
     }
 
     public function edit($id)
     {
         $pessoa = Pessoa::findOrFail($id);
-        return view('pessoa.edit', compact('pessoa'));
+        return view('clients.edit', compact('pessoa'));
     }
 
-    /**
-     * Atualizar uma pessoa específica.
-     */
     public function update(Request $request, $id)
     {
         // Validação baseada no tipo de pessoa
