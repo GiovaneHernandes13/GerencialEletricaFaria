@@ -12,7 +12,6 @@ class Cidade extends Model
     protected $fillable = [
         'id_estado',
         'nome_cidade',
-        'ibge_cidade',
     ];
 
     // Define the relationship with the "Estado" model
