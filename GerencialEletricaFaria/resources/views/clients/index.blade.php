@@ -7,7 +7,7 @@
             <tr class="table-header">
                 <th class="table-cell">Nome</th>
                 <th class="table-cell">Tipo</th>
-                <th class="table-cell">CNPJ</th>
+                <th class="table-cell">CNPJ/CPF</th>
                 <th class="table-cell">Inscrição Estadual</th>
                 <th class="table-cell">Ações</th>
             </tr>
@@ -19,7 +19,7 @@
                     <td class="table-cell">{{ $linha->tipo }}</td>
                     
                     @if ($linha->tipo == 1) <!-- Pessoa Física -->
-                        <td class="table-cell">-</td> <!-- Campo vazio para CNPJ -->
+                        <td class="table-cell">{{ $linha->cpf }}</td>
                         <td class="table-cell">{{ $linha->rg }}</td>
                     @elseif ($linha->tipo == 2) <!-- Pessoa Jurídica -->
                         <td class="table-cell">{{ $linha->cnpj }}</td>
