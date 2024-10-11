@@ -51,23 +51,24 @@ class OrdemDeServicoController extends BaseController
             'quantidade.*' => 'required|integer|min:1',
             'preco_unitario.*' => 'required|numeric|min:0',
         ]);
- 
-        $total_servico = $request->quantidade_servico * $request->preco_unitario_servico;
 
+        // Calcula o total da mão de obra
+        $totalMaoDeObra = $request->quantidade_servico * $request->preco_unitario_servico;
+
+        // Cria a ordem de serviço
         $ordemDeServico = OrdemDeServico::create([
             'id_funcionario' => $request->id_funcionario,
             'data_abertura' => $request->data_abertura,
             'descricao_servico' => $request->descricao_servico,
             'quantidade_servico' => $request->quantidade_servico,
             'preco_unitario_servico' => $request->preco_unitario_servico,
-            'total_servico' => 0, // Inicializa com 0, será atualizado depois
+            'total_servico' => 0,
             'id_status' => $request->id_status,
             'id_pessoa' => $request->id_pessoa,
             'nome_ordem' => $request->nome_ordem,
         ]);
-        
 
-        $total_servico = 0;
+        $total_servico = $totalMaoDeObra; // Inclui a mão de obra no total inicial
 
         $produtos = $request->input('id_produto');
         $quantidades = $request->input('quantidade'); 
@@ -89,13 +90,12 @@ class OrdemDeServicoController extends BaseController
             ]);
         }
         
-        // Atualiza o total da ordem de serviço com o total calculado
+        // Atualiza o total da ordem de serviço com o total calculado (produtos + mão de obra)
         $ordemDeServico->update(['total_servico' => $total_servico]);
         
         return redirect()->route('OrdemServicos.index')->with('success', 'Ordem de Serviço criada com sucesso!');
-    
     }
-    
+        
 
     
 
@@ -133,12 +133,19 @@ class OrdemDeServicoController extends BaseController
     }
     
 
-public function destroy(int $id)
-{
-    $ordem = OrdemDeServico::findOrFail($id);
-    $ordem->delete();
-    return redirect()->route('OrdemServicos.index')->with('success', 'Ordem de Serviço excluída com sucesso.');
-}
+    public function destroy(int $id)
+    {
+        $ordem = OrdemDeServico::findOrFail($id);
+    
+        // Excluir os itens relacionados à ordem de serviço
+        $ordem->itens()->delete();
+    
+        // Agora pode excluir a ordem de serviço
+        $ordem->delete();
+    
+        return redirect()->route('OrdemServicos.index')->with('success', 'Ordem de Serviço excluída com sucesso.');
+    }
+    
 
 }
 
