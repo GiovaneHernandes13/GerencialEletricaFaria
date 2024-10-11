@@ -68,7 +68,7 @@
                           </li>
                           <li>
                               <a class="show-cat-btn" href="##">
-                                  <span class="icon paper" aria-hidden="true"></span>Pages
+                                  <span aria-hidden="true"></span>Funcionarios
                               </a>
                           </li>
                           <li>
