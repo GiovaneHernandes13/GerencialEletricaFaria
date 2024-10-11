@@ -36,8 +36,6 @@
             </div>
         </div>
 
-        <br><br><br>
-        
         <h4>Mão de Obra</h4>
         <div class="container-servicos">
             <div class="form-group">
@@ -58,7 +56,6 @@
             </div>
         </div>
 
-        <br><br><br>
         <div id="itens_ordem">
             <h3>Itens da Ordem de Serviço</h3>
 
@@ -90,11 +87,14 @@
                 </div>
                 <button type="button" class="remove-item btn btn-danger">Remover Item</button>
             </div>
-            
-            
         </div>
-        
- 
+
+        <!-- Total Geral -->
+        <div class="form-group">
+            <label for="total_geral">Total Geral:</label>
+            <input type="number" id="total_geral" class="form-control" name="total_geral" step="0.01" readonly>
+        </div>
+
         <div class="form-group">
             <label for="id_status">Status:</label>
             <select name="id_status" id="id_status" class="form-control" required>
@@ -115,7 +115,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Função para adicionar um novo item
+
             document.getElementById('add-item').addEventListener('click', function () {
                 let itemTemplate = `
                     <div class="item_ordem">
@@ -154,6 +154,7 @@
             document.addEventListener('click', function (event) {
                 if (event.target && event.target.classList.contains('remove-item')) {
                     event.target.closest('.item_ordem').remove();
+                    calcularTotalGeral(); // Atualiza o total geral após remover um item
                 }
             });
     
@@ -181,10 +182,18 @@
                 const quantidade = parseFloat(item.querySelector('.input_qtd').value) || 0;
                 const precoUnitario = parseFloat(item.querySelector('.input_uni').value) || 0;
                 const total = quantidade * precoUnitario;
-                item.querySelector('.input_total').value = total.toFixed(2); // Formata o total com duas casas decimais
+                item.querySelector('.input_total').value = total.toFixed(2);
+                calcularTotalGeral();
+            }
+
+            // Função para calcular o total geral de todos os itens
+            function calcularTotalGeral() {
+                let totalGeral = 0;
+                document.querySelectorAll('.input_total').forEach(function (inputTotal) {
+                    totalGeral += parseFloat(inputTotal.value) || 0;
+                });
+                document.getElementById('total_geral').value = totalGeral.toFixed(2);
             }
         });
     </script>
-    
-    
 @endsection

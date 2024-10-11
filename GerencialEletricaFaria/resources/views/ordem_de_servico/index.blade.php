@@ -29,7 +29,7 @@
                         <a href="{{ route('OrdemServicos.show', $linha->id_ordem_servico) }}">
                             <img class="icons" src="{{ asset('img/documento.png') }}" alt="">
                         </a>
-                        <form action="{{ route('OrdemServicos.destroy', $linha->id_ordem_servico) }}" method="POST" class="delete-button" onsubmit="return confirm('Tem certeza que deseja excluir este produto?');">
+                        <form action="{{ route('OrdemServicos.destroy', $linha->id_ordem_servico) }}" method="POST" class="delete-button" onsubmit="return confirm('Tem certeza que deseja excluir este O.S.?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit">
