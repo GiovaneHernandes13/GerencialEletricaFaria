@@ -17,8 +17,8 @@ class ProdutosController extends Controller
 
     public function create()
     {
-        $cests = Cest::all(); // Busca todos os CESTs
-        $ncms = Ncm::all();   // Busca todos os NCMs
+        $cests = Cest::all();
+        $ncms = Ncm::all();
         
         return view('product.produto_create', compact('cests', 'ncms'));
     }

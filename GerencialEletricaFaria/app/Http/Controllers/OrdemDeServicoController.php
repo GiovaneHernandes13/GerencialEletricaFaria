@@ -14,11 +14,9 @@ use Illuminate\Routing\Controller as BaseController;
 
 class OrdemDeServicoController extends BaseController
 {
-    public function index()
+    public function listar()
     {
         $ordens = OrdemDeServico::all();
-        
-        // Passando os dados corretamente para a view
         return view('ordem_de_servico.index', ['ordens' => $ordens]);
     }
 
@@ -32,7 +30,7 @@ class OrdemDeServicoController extends BaseController
         return view('ordem_de_servico.create', compact('funcionarios', 'status', 'clientes', 'produtos'));
     }
 
-    public function store(Request $request)
+    public function SalvarOrdem(Request $request)
     {
         // Validação dos dados
         $request->validate([

@@ -25,7 +25,7 @@ class FuncionariosController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $create = $request->validate([
             'nome' => 'required|string|max:255',
             'cpf' => 'required|string|max:14',
             'rg' => 'required|string|max:20',
@@ -36,7 +36,7 @@ class FuncionariosController extends Controller
             'salario' => 'required|numeric|min:0',
         ]);
     
-        Funcionario::create($validatedData);
+        Funcionario::create($create);
     
         return redirect()->route('funcionarios.index')->with('message', 'Funcionário salvo com sucesso!');
     }
@@ -64,7 +64,7 @@ class FuncionariosController extends Controller
     public function update(Request $request, Funcionario $funcionario)
     {
         // Valida os dados recebidos da requisição
-        $validatedData = $request->validate([
+        $update = $request->validate([
             'nome' => 'required|string|max:255',
             'telefone' => 'required|string',
             'email' => 'required|string',
@@ -73,9 +73,9 @@ class FuncionariosController extends Controller
         ]);
 
         // Atualiza o produto com os dados validados
-        $updated = $funcionario->update($validatedData);
+        $updated = $funcionario->update($update);
 
-        if ($updated) {
+        if ($update) {
             return redirect()->route('funcionarios.index')->with('message', 'Funcionario atualizado com sucesso!');
         }
 
