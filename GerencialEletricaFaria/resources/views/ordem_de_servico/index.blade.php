@@ -19,9 +19,9 @@
             @foreach ($ordens as $linha)
                 <tr class="table-row">
                     <td class="table-cell">{{ $linha->id_ordem_servico }}</td>
-                    <td class="table-cell">{{ $linha->pessoa->nome ?? 'N/A' }}</td>
+                    <td class="table-cell">{{ $linha->pessoa->nome  }}</td>
                     <td class="table-cell">{{ $linha->nome_ordem }}</td>
-                    <td class="table-cell">{{ $linha->status->descricao_status ?? 'N/A' }}</td>
+                    <td class="table-cell">{{ $linha->status->descricao_status }}</td>
                     <td class="table-cell">{{ $linha->total_servico }}</td>
                     <th class="table-cell">
                         <img class="icons" src="{{ asset('img/pdf.png') }}" alt="">
