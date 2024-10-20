@@ -3,7 +3,7 @@
 @section('conteudo')
     <h2>CREATE O.S.</h2>
 
-    <form action="{{ route('OrdemServicos.store') }}" method="POST">
+    <form action="{{ route('OrdemServicos.SalvarOrdem') }}" method="POST">
         @csrf
         <div class="grupo">
             <label for="nome_ordem">Nome da O.S.:</label>
