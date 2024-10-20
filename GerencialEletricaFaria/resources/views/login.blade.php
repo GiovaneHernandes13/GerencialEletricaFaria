@@ -1,132 +1,175 @@
 <!DOCTYPE html>
-<html lang="en" class="form-screen">
+<html lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login - Admin One Tailwind CSS Admin Dashboard</title>
-
-  <!-- Tailwind is included -->
-  <link rel="stylesheet" href="css/main.css?v=1628755089081">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
-  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#00b4b6"/>
-
-  <meta name="description" content="Admin One - free Tailwind dashboard">
-
-  <meta property="og:url" content="https://justboil.github.io/admin-one-tailwind/">
-  <meta property="og:site_name" content="JustBoil.me">
-  <meta property="og:title" content="Admin One HTML">
-  <meta property="og:description" content="Admin One - free Tailwind dashboard">
-  <meta property="og:image" content="https://justboil.me/images/one-tailwind/repository-preview-hi-res.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1920">
-  <meta property="og:image:height" content="960">
-
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="Admin One HTML">
-  <meta property="twitter:description" content="Admin One - free Tailwind dashboard">
-  <meta property="twitter:image:src" content="https://justboil.me/images/one-tailwind/repository-preview-hi-res.png">
-  <meta property="twitter:image:width" content="1920">
-  <meta property="twitter:image:height" content="960">
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130795909-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-130795909-1');
-  </script>
+  <meta charset="UTF-8">
+  <title>CodePen - Glassmorphism login Form Tutorial in html css</title>
+  
 
 </head>
 <body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Design by foolishdeveloper.com -->
+    <title>Glassmorphism login Form Tutorial in html css</title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #080710;
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -30px;
+    bottom: -80px;
+}
+form{
+    height: 520px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
 
-<div id="app">
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+button{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.social{
+  margin-top: 30px;
+  display: flex;
+}
+.social div{
+  background: red;
+  width: 150px;
+  border-radius: 3px;
+  padding: 5px 10px 10px 5px;
+  background-color: rgba(255,255,255,0.27);
+  color: #eaf0fb;
+  text-align: center;
+}
+.social div:hover{
+  background-color: rgba(255,255,255,0.47);
+}
+.social .fb{
+  margin-left: 25px;
+}
+.social i{
+  margin-right: 4px;
+}
 
-  <section class="section main-section">
-    <div class="card">
-      <header class="card-header">
-        <p class="card-header-title">
-          <span class="icon"><i class="mdi mdi-lock"></i></span>
-          Login
-        </p>
-      </header>
-      <div class="card-content">
-        @if($errors->all())
-          @foreach($errors->all() as $error)
-            <div class="alert alert-danger">
-                {{ $error }}
-            </div>
-          @endforeach
-        @endif
-
-        <form method="POST" action='{{ route('login') }}'>
-
-          @csrf
-
-          <div class="field spaced">
-            <label class="label">Email</label>
-            <div class="control icons-left">
-              <input class="input" type="text" name="email" placeholder="user@example.com">
-              <span class="icon is-small left"><i class="mdi mdi-account"></i></span>
-            </div>
-          </div>  
-
-
-          <div class="field spaced">
-            <label class="label">Password</label>
-            <p class="control icons-left">
-              <input class="input" type="password" name="password" placeholder="Password" autocomplete="current-password">
-              <span class="icon is-small left"><i class="mdi mdi-asterisk"></i></span>
-            </p>
-          </div>
-
-
-          <div class="field grouped">
-            <div class="control">
-              <button type="submit" class="button blue">
-                Login
-              </button>
-            </div>
-            <div class="control">
-              <a href="index.html" class="button">
-                Back
-              </a>
-            </div>
-          </div>
-
-        </form>
-      </div>
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
+    <form method="POST" action="{{ route('login') }}">
 
-  </section>
+        @csrf
+        <h3>Login Here</h3>
 
+        <label for="username">Username</label>
+        <input type="text" name="email" placeholder="user@example.com" id="username">
 
-</div>
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Password" autocomplete="current-password" id="password">
 
-<!-- Scripts below are for demo only -->
-<script type="text/javascript" src="js/main.min.js?v=1628755089081"></script>
-
-
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '658339141622648');
-  fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=658339141622648&ev=PageView&noscript=1"/></noscript>
-
-<!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
-<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
-
+        <button type="submit">Log In</button>
+        <div class="social">
+          <div class="go"><i class="fab fa-google"></i>  Google</div>
+          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+          <div class=""><a href="{{ route('register') }}" class="fab fa-facebook"></a>  register</div>
+        </div>
+    </form>
+</body>
+</html>
+<!-- partial -->
+  
 </body>
 </html>
