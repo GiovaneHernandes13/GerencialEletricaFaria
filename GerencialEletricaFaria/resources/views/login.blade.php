@@ -164,7 +164,6 @@ button{
         <div class="social">
           <div class="go"><i class="fab fa-google"></i>  Google</div>
           <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-          <div class=""><a href="{{ route('register') }}" class="fab fa-facebook"></a>  register</div>
         </div>
     </form>
 </body>
