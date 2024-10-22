@@ -58,6 +58,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/OrdemServiços/{OrdemServiço}/itens/{item}', [ItensDaOrdemController::class, 'update'])->name('itens_ordem.update');
     Route::delete('/OrdemServiços/{OrdemServiço}/itens/{item}', [ItensDaOrdemController::class, 'destroy'])->name('itens_ordem.destroy');
 
+    Route::get('/cidades/{id_estado}', [PessoasController::class, 'getCidades']);
+    
 });
 
 Route::get('/login', function(){
