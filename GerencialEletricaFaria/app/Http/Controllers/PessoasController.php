@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pessoa;
+use App\Models\Estado;
+use App\Models\Cidade;
 
 class PessoasController extends Controller
 {
@@ -13,20 +15,29 @@ class PessoasController extends Controller
     public function index()
     {
         $pessoas = Pessoa::all();
-        return view('clients.index', ['pessoas' => $pessoas]); // Mantenha 'pessoas' em minúsculas
+        return view('clients.index', ['pessoas' => $pessoas],);
     }
 
     public function create()
     {
-        return view('clients.create');
+        $estados = Estado::all(); // Supondo que você tenha uma model Estado
+        $cidades = Cidade::all(); // Supondo que você tenha uma model Cidade
+        return view('clients.create', compact('estados', 'cidades'));
     }
+    
+    public function getCidades($id_estado)
+    {
+        $cidades = Cidade::where('id_estado', $id_estado)->get();
+        return response()->json($cidades);
+    }
+    
 
     public function store(Request $request)
     {
-        // Validação baseada no tipo de pessoa
+        // Validação do tipo de pessoa
         if ($request->input('tipo') == 1) {
             // Validação para Pessoa Física
-            $validatedData = $request->validate([
+            $validatedDataPessoa = $request->validate([
                 'tipo' => 'required|integer|in:1,2',
                 'cpf' => 'required|string|max:11|unique:pessoas,cpf',
                 'rg' => 'required|string|max:20',
@@ -38,7 +49,7 @@ class PessoasController extends Controller
             ]);
         } elseif ($request->input('tipo') == 2) {
             // Validação para Pessoa Jurídica
-            $validatedData = $request->validate([
+            $validatedDataPessoa = $request->validate([
                 'tipo' => 'required|integer|in:1,2',
                 'cnpj' => 'required|string|max:14|unique:pessoas,cnpj',
                 'inscricao_estadual' => 'required|string|max:20',
@@ -50,12 +61,35 @@ class PessoasController extends Controller
             ]);
     
             // Preenchendo o campo 'nome' com 'razao_social' para Pessoa Jurídica
-            $validatedData['nome'] = $validatedData['razao_social'];
+            $validatedDataPessoa['nome'] = $validatedDataPessoa['razao_social'];
         } else {
-            return back()->withErrors(['tipo' => 'Tipo invalido']);
+            return back()->withErrors(['tipo' => 'Tipo inválido']);
         }
     
-        \App\Models\Pessoa::create($validatedData);
+        // Validação do endereço
+        $validatedDataEndereco = $request->validate([
+            'logradouro' => 'required|string|max:100',
+            'numero' => 'required|string|max:10',
+            'complemento' => 'nullable|string|max:50',
+            'bairro' => 'required|string|max:50',
+            'cep' => 'required|string|max:8',
+            'id_cidade' => 'required|exists:cidade,id_cidade', // Validação da chave estrangeira
+        ]);
+    
+        // Criação do endereço na tabela ENDERECO
+        $endereco = Endereco::create([
+            'logradouro' => $validatedDataEndereco['logradouro1'],
+            'numero' => $validatedDataEndereco['numero'],
+            'complemento' => $validatedDataEndereco['complemento'],
+            'bairro' => $validatedDataEndereco['bairro'],
+            'cep' => $validatedDataEndereco['cep'],
+            'id_cidade' => $validatedDataEndereco['id_cidade'],
+        ]);
+    
+        // Adicionando a chave estrangeira do endereço à pessoa
+        $validatedDataPessoa['id_endereco'] = $endereco->id_endereco;
+    
+        Pessoa::create($validatedDataPessoa);
     
         return redirect()->route('pessoas.index')->with('success', 'Pessoa cadastrada com sucesso!');
     }
@@ -126,4 +160,5 @@ class PessoasController extends Controller
         Pessoa::destroy($id);
         return redirect()->route('pessoas.index')->with('success', 'Cliente removido com sucesso!');
     }
+
 }
