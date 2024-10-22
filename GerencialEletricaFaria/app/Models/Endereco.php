@@ -18,8 +18,6 @@ class Endereco extends Model
         'id_cidade',
     ];
 
-    
-
     // Define the relationship with the "Cidade" model
     public function cidade(): BelongsTo
     {
